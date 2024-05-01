@@ -1,5 +1,5 @@
-#include "graph.h"
-#include "bfs.h"
+#include "../include/graph.h"
+#include "../include/queue.h"
 #include <stdio.h>
 
 int main()

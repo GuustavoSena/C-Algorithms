@@ -1,4 +1,4 @@
-#include "bfs.h"
+#include "../include/bfs.h"
 #include <stdio.h> // Para o printf
 #include <stdlib.h> // Para malloc e free
 

@@ -1,4 +1,4 @@
-#include "graph.h"
+#include "../include/graph.h"
 
 // Função para criar um novo nó da lista de adjacência. Como ela tem uma logica única, é melhor separá-la de addEdge. Até porque ela também pode ser usada em outro locais.
 AdjListNode *newAdjListNode(int dest)
