@@ -27,7 +27,7 @@ QueueNode* dequeue(Queue* q) {
     if (q->front == NULL) {
         q->rear = NULL;
     }
-    result->next = NULL; //Não sei se tirar a conexão do QueueNode que saiu com a Queue inteira é crítico para o BFS. Vou manter e ver se temos problema.
+    result->next = NULL;
     q->size--;
     return result;
 }

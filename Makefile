@@ -1,12 +1,12 @@
 CC=gcc
-CFLAGS=-I include
+CFLAGS=-I./include -I./Graphs/BFS/include
 
-.PHONY: all bfs clean
+.PHONY: all clean
 
 all: main
 
 main:
-	$(CC) $(CFLAGS) -o main src/main.c src/graph.c src/queue.c Graphs/BFS/src/bfs.c
+	$(CC) $(CFLAGS) -o main src/graph.c src/queue.c src/main.c Graphs/BFS/src/bfs.c Graphs/BFS/src/maze_bfs.c
 
 clean:
 	PowerShell -Command "Remove-Item main.exe -Force"

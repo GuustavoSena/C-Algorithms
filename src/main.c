@@ -1,22 +1,44 @@
 #include "../include/graph.h"
 #include "../include/queue.h"
+#include "../Graphs/BFS/include/maze_bfs.h"
 #include <stdio.h>
 
 int main()
 {
-    // Criaremos um grafo com um número definido de vértices
-    int numVertices = 5;
-    Graph *graph = createGraph(numVertices);
-    addEdge(graph, 0, 1);
-    addEdge(graph, 0, 2);
-    addEdge(graph, 1, 2);
-    addEdge(graph, 1, 3);
-    addEdge(graph, 2, 4);
-    addEdge(graph, 3, 4);
-    completeBFS(graph);
+    printf("Iniciando o programa...\n");
 
-    // Liberar a memória alocada para o grafo
-    freeGraph(graph);
+    int maze[5][5] = {
+        {0, 1, 0, 0, 0},
+        {0, 1, 0, 1, 0},
+        {0, 0, 0, 1, 0},
+        {0, 1, 1, 1, 0},
+        {0, 0, 0, 0, 0}};
 
+    int *mazePtrs[5];
+    for (int i = 0; i < 5; i++)
+    {
+        mazePtrs[i] = maze[i];
+    }
+
+    int rows = 5, cols = 5;
+    Graph graph;
+    graph.numVertices = rows * cols;
+    graph.array = (AdjList *)malloc(graph.numVertices * sizeof(AdjList));
+    for (int i = 0; i < graph.numVertices; i++)
+    {
+        graph.array[i].head = NULL;
+    }
+
+    initGraphFromMaze(&graph, mazePtrs, rows, cols);
+
+    bool *visited = (bool *)malloc(graph.numVertices * sizeof(bool));
+    for (int i = 0; i < graph.numVertices; i++)
+    {
+        visited[i] = false;
+    }
+
+    bfsMaze(&graph, 0, 24, visited); // Começa no canto superior esquerdo, termina no inferior direito
+
+    free(visited);
     return 0;
 }
