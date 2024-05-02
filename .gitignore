@@ -1,0 +1,29 @@
+# Arquivos objeto
+*.o
+
+# Arquivos executáveis
+*.exe
+*.out
+
+# Arquivos de log de depuração
+*.log
+
+# Bibliotecas estáticas
+*.lib
+*.a
+
+# Arquivos de configuração do IDE
+.vscode/
+
+# Pasta de builds
+build/
+debug/
+release/
+
+# Arquivos de backup
+*~
+*.bak
+*.tmp
+
+# Arquivos gerados automaticamente pelo Makefile
+Makefile.dep
